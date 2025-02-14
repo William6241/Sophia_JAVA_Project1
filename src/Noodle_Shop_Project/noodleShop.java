@@ -5,30 +5,38 @@ import java.util.Scanner;
 public class noodleShop {
 
     public static void main(String[] args) {
+        // Scanner to read user input
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            // Display welcome message and instructions
             System.out.println("Welcome to Yummy Noodle Shop");
 
-            String greeting = "Please select a category to order by enter number (1 or 2)!";
+            String greeting = "Please select a category to order by entering a number (1 or 2)!";
             String categories = "1. Type of Noodles \n2. Type of Drinks";
             System.out.println(greeting + categories);
 
+            // Read user's category selection
             int selectedCategory = scanner.nextInt();
 
+            // If user selects noodles
             if (selectedCategory == 1) {
                 System.out.println("There are four types of noodles:");
-                System.out.println("Please select the noodle name you want to buy! (e.g. 1, 2, 3 or 4)");
+                System.out.println("Please select the noodle name you want to buy! (e.g. 1, 2, 3, or 4)");
 
+                // Noodle names and prices
                 String[] noodleNames = {"Chinese Noodle", "Thai Noodle", "Vietnamese Noodle", "Japanese Noodle"};
                 int[] noodlePrices = {30, 40, 50, 60};
 
+                // Display noodle options
                 for (int i = 0; i < noodleNames.length; i++) {
                     System.out.println((i + 1) + ". " + noodleNames[i] + " - " + noodlePrices[i] + " $");
                 }
 
+                // Read user's noodle selection
                 int selectedNoodle = scanner.nextInt();
 
+                // Process noodle order based on user's selection
                 switch (selectedNoodle) {
                     case 1:
                         System.out.println("You've selected " + noodleNames[0] + "     price - " + noodlePrices[0]);
@@ -63,18 +71,22 @@ public class noodleShop {
                         break;
                 }
 
+            // If user selects drinks
             } else if (selectedCategory == 2) {
+                // Drink names and prices
                 String[] drinkNames = {"Coffee", "Green Tea", "Orange Juice", "Papaya Juice"};
                 int[] drinkPrices = {10, 15, 20, 25};
 
+                // Display drink options
                 for (int i = 0; i < drinkNames.length; i++) {
                     System.out.println((i + 1) + ". " + drinkNames[i] + " - " + drinkPrices[i] + " $");
                 }
                 System.out.println("Please select the drink you want to order by entering number 1, 2, 3, or 4!");
+                // Read user's drink selection
                 int selectedDrink = scanner.nextInt();
 
+                // Process drink order based on user's selection
                 switch (selectedDrink) {
-
                     case 1:
                         System.out.println("You've selected " + drinkNames[0] + "     price - " + drinkPrices[0]);
                         System.out.println("Please, Enter the number of drinks you want to order!");
@@ -112,13 +124,13 @@ public class noodleShop {
                 System.out.println("Invalid selection! Please only enter the number 1 or 2.");
             }
 
+            // Ask user if they want to return to the main menu or exit
             System.out.println("Do you want to go back to the main menu or exit? (1. Main Menu, 2. Exit)");
             int choice = scanner.nextInt();
             if (choice == 2) {
                 System.out.println("Thank you for visiting Yummy Noodle Shop! Goodbye!");
-                break;
+                break; // Exit the loop and end the program
             }
         }
     }
 }
-
